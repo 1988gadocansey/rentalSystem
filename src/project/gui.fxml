@@ -1,0 +1,29 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Label?>
+<GridPane fx:controller="project.controllers.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <Label text="Please SignIn to continue"
+          GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <Label text="User Name:"
+           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+    <TextField
+            GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Password:"
+           GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+    <PasswordField fx:id="passwordField"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+
+</GridPane>
