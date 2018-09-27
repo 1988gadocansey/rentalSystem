@@ -1,24 +1,19 @@
 package project;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import project.database.DBConnection;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javax.swing.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.chart.PieChart;
+import project.views.PropertyView;
 
 public class Main extends Application {
 
-
+    PropertyView pview=null;
     /*@Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
@@ -71,7 +66,13 @@ public class Main extends Application {
         menuBar.getMenus().add(exit);
 
 
+        addApartment.setOnAction(new EventHandler<ActionEvent>() {
 
+            public void handle(ActionEvent t) {
+
+            }
+
+        });
 
 
 

@@ -7,17 +7,13 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 
-/**
- *
- * @author sqlitetutorial.net
- */
 public class DBConnection {
 
     public static Connection conn = null;
     static  Statement state=null;
     static  ResultSet res=null;
     /**
-     * Connect to a sample database
+     * Connect to a rentalsys database
      */
     public static Connection connect() {
 
@@ -46,24 +42,27 @@ public class DBConnection {
 
     }
 
-    public void insert(  String streetName,String suburb,String streetNumber, String status,int numOfBedRoom) {
-        String sql = "INSERT INTO property( streetNumber,suburb,status,numOfBedRoom,streetNumber) VALUES(?,?,?,?,?)";
+    public static void insert(int id,String streetName, String suburb, String streetNumber, String status, int numOfBedRoom,String ptype) {
 
-        try (
 
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        String sql = "INSERT INTO property( streetNumber,suburb,status,numOfBedRoom,streetNumber,propertyId,propertyType) VALUES(?,?,?,?,?,?,?)";
 
-                pstmt.setString(1,streetName);
-                pstmt.setString(2,suburb);
-                pstmt.setString(3,streetNumber);
-                pstmt.setString(4,status);
-                pstmt.setInt(5,numOfBedRoom);
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
 
-                pstmt.executeUpdate();
-                System.out.println("Property inserted successfully ");
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
+            pstmt.setString(1, streetNumber);
+            pstmt.setString(2, suburb);
+            pstmt.setString(3, status);
+            pstmt.setInt(4, numOfBedRoom);
+            pstmt.setString(5, streetNumber);
+            pstmt.setInt(6, id);
+            pstmt.setString(7, ptype);
+
+            pstmt.executeUpdate();
+            System.out.println("Property inserted successfully ");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void view(){
@@ -108,10 +107,10 @@ public class DBConnection {
     public static void main(String[] args) {
         connect();
 
-        DBConnection conn=new DBConnection();
-        conn.insert( "Adisadel Street","connerstone","78333","available",3);
+        //DBConnection conn=new DBConnection();
+        //conn.insert( "Adisadel Street","connerstone","78333","available",3);
 
-        view();
+        //view();
 
 
     }
